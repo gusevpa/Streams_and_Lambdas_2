@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 interface TestInterface1 {
-    Long getrandomLong();
+    int getrandomLong();
 }
 
 interface TestInterface2{
@@ -16,9 +16,9 @@ public class AccountCreator {
 
         TestInterface1 l = ()-> {
             double rand = Math.random();
-            if(rand > 0.4) return Math.round(Math.random() * 10000);
-            else if (rand > 0.3) return Math.round(Math.random() * 1000000000);
-            else return 0L;
+            if(rand > 0.4) return (int) Math.round(Math.random() * 10000);
+            else if (rand > 0.3) return (int) Math.round(Math.random() * 1000000000);
+            else return 0;
         };
 
         TestInterface2 bool = (a)-> a == 0;

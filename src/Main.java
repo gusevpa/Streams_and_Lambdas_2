@@ -6,13 +6,13 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) {
 
-        List<Account> accounts = new AccountCreator().getAccSet(28000000);
+        List<Account> accounts = new AccountCreator().getAccSet(69000000);
 
         int accountsSize = accounts.size();
 
         LocalDateTime start1Time = LocalDateTime.now();
         List<Account> nonEmptyAccounts = accounts.stream()
-                .filter(p -> p.getBalance() > 0)
+                .filter(Account::islocked)
                 .collect(Collectors.toList());
 
         int nonEmptyAccountsSize = nonEmptyAccounts.size();
@@ -33,7 +33,7 @@ public class Main {
 
         LocalDateTime start2Time = LocalDateTime.now();
         List<Account> nonEmptyAccounts2 = accounts.stream()
-                .filter(p -> p.getBalance() > 0)
+                .filter(Account::islocked)
                 .collect(Collectors.toList());
 
         int nonEmptyAccountsSize2 = nonEmptyAccounts2.size();
