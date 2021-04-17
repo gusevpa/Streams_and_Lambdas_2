@@ -40,6 +40,6 @@ public class Main {
         LocalDateTime finish2Time = LocalDateTime.now();
         Duration d2 = Duration.between(start2Time, finish2Time);
 
-        System.out.println("as Set: " + d1.getNano()/1000000 + " ms\nvs \nas List: " + d2.getNano()/1000000 + " ms \n but WHY?");
+        System.out.println("as Set: " + d1.getNano()/1000000 + " ms\nvs \nas List: " + d2.getNano()/1000000 + " ms");
     }
 }
