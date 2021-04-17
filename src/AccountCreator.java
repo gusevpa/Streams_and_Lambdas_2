@@ -5,10 +5,6 @@ interface TestInterface1 {
     int getrandomLong();
 }
 
-interface TestInterface2{
-    boolean getBool(long a);
-}
-
 public class AccountCreator {
 
     public List<Account> getAccSet(int num){
@@ -20,8 +16,6 @@ public class AccountCreator {
             else if (rand > 0.3) return Math.toIntExact(Math.round(Math.random() * 1000000000));
             else return 0;
         };
-
-        TestInterface2 bool = (a)-> a == 0;
 
         for(int i = 0; i < num; i++){
             list.add(new Account());

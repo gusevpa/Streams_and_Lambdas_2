@@ -31,6 +31,13 @@ public class Account {
         }else this.balance = balance;
     }
 
+    public void changeBalance(int change) {
+        balance = balance + change;
+        if(balance <= 0) {
+            this.islocked = true;
+        }
+    }
+
     public boolean islocked() {
         return islocked;
     }
