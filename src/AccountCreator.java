@@ -29,8 +29,6 @@ public class AccountCreator {
 
         list.forEach(p -> p.setBalance(l.getrandomLong()));
 
-        list.forEach(p -> p.setIslocked(bool.getBool(p.getBalance())));
-
         System.out.println("Successfully generated ArrayList containing " + list.size() + " uniq objects");
         return list;
     }

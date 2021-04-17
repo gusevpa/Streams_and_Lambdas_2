@@ -4,7 +4,7 @@ public class Account {
     private static int number = 0;
     private final int accId;
     private int balance;
-    private boolean islocked;
+    private boolean islocked = false;
 
     public Account(int balance, boolean islocked) {
         accId = ++number;
@@ -25,7 +25,10 @@ public class Account {
     }
 
     public void setBalance(int balance) {
-        this.balance = balance;
+        if(balance <= 0) {
+            this.balance = 0;
+            this.islocked = true;
+        }else this.balance = balance;
     }
 
     public boolean islocked() {
@@ -39,7 +42,7 @@ public class Account {
     @Override
     public String toString() {
         return "Account{" +
-                "number='" + number + '\'' +
+                "accId='" + accId + '\'' +
                 ", balance=" + balance +
                 ", islocked=" + islocked +
                 '}';
