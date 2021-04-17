@@ -1,8 +1,10 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 interface TestInterface1 {
-    Long getrandonLong ();
+    Long getrandomLong();
 }
 
 interface TestInterface2{
@@ -15,8 +17,8 @@ public class AcccountCreator {
         accId = 0L;
     }
 
-    public List<Account> getAccList(int num){
-        List <Account> list = new ArrayList<>();
+    public Set<Account> getAccSet(int num){
+        Set<Account> list = new HashSet<>();
 
         for(int i = 0; i < num; i++){
             TestInterface1 l = ()-> {
@@ -26,9 +28,9 @@ public class AcccountCreator {
                 else return 0L;
             };
 
-            TestInterface2 bool = ()-> l.getrandonLong() > 0;
+            TestInterface2 bool = ()-> l.getrandomLong() > 0;
 
-            list.add(new Account(++accId + "", l.getrandonLong(), bool.getBool()));
+            list.add(new Account(++accId + "", l.getrandomLong(), bool.getBool()));
         }
         return list;
     }
