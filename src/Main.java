@@ -21,7 +21,6 @@ public class Main {
                 .collect(Collectors.toSet());
 
         System.out.println((double) nonEmptyAccounts.size()/accountsAsSet.size() + " vs " + (double) accountsWithTooMuchMoney.size()/accountsAsSet.size());
-
         LocalDateTime finish1Time = LocalDateTime.now();
         Duration d1 = Duration.between(start1Time, finish1Time);
 
@@ -37,7 +36,7 @@ public class Main {
                 .filter(p -> p.getBalance() >= 100000000)
                 .collect(Collectors.toList());
 
-        System.out.println((double) nonEmptyAccounts2.size()/accountsAsSet.size() + " vs " + (double) accountsWithTooMuchMoney2.size()/accountsAsSet.size());
+        System.out.println((double) nonEmptyAccounts2.size()/accountsAsList.size() + " vs " + (double) accountsWithTooMuchMoney2.size()/accountsAsList.size());
         LocalDateTime finish2Time = LocalDateTime.now();
         Duration d2 = Duration.between(start2Time, finish2Time);
 
