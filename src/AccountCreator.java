@@ -1,8 +1,5 @@
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Stream;
 
 interface TestInterface1 {
     Long getrandomLong();
@@ -12,14 +9,10 @@ interface TestInterface2{
     boolean getBool(long a);
 }
 
-public class AcccountCreator {
-    private static long accId;
-    static {
-        accId = 0L;
-    }
+public class AccountCreator {
 
-    public Set<Account> getAccSet(long num){
-        Set<Account> list = new HashSet<>();
+    public List<Account> getAccSet(long num){
+        List<Account> list = new ArrayList<>();
 
         TestInterface1 l = ()-> {
             double rand = Math.random();
@@ -31,13 +24,14 @@ public class AcccountCreator {
         TestInterface2 bool = (a)-> a == 0;
 
         for(int i = 0; i < num; i++){
-            list.add(new Account(++accId + ""));
+            list.add(new Account());
         }
 
         list.forEach(p -> p.setBalance(l.getrandomLong()));
 
         list.forEach(p -> p.setIslocked(bool.getBool(p.getBalance())));
 
+        System.out.println("Successfully generated ArrayList containing " + list.size() + " uniq objects");
         return list;
     }
 }

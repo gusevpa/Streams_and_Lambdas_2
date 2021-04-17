@@ -1,27 +1,28 @@
 import java.util.Objects;
 
 public class Account {
-    private String number;
+    private static Long number = 0L;
+    private final Long accId;
     private Long balance;
     private boolean islocked;
 
-    public Account(String number, Long balance, boolean islocked) {
-        this.number = number;
+    public Account(Long balance, boolean islocked) {
+        accId = ++number;
         this.balance = balance;
         this.islocked = islocked;
     }
 
-    public Account(String number) {
-        this.number = number;
+    public Account() {
+        accId = ++number;
     }
 
-    public String getNumber() {
-        return number;
+    public Long getAccId() {
+        return accId;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
-    }
+//    public void setNumber(String number) {
+//        this.number = number;
+//    }
 
     public Long getBalance() {
         return balance;
@@ -53,11 +54,11 @@ public class Account {
         if (this == o) return true;
         if (!(o instanceof Account)) return false;
         Account account = (Account) o;
-        return getNumber().equals(account.getNumber());
+        return getAccId().equals(account.getAccId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getNumber());
+        return Objects.hash(getAccId());
     }
 }
