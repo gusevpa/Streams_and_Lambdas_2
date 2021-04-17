@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) {
 
-        Set<Account> accountsAsSet = new AcccountCreator().getAccSet(1000000);
+        Set<Account> accountsAsSet = new AcccountCreator().getAccSet(100000000);
 
         LocalDateTime start1Time = LocalDateTime.now();
         Set<Account> nonEmptyAccounts = accountsAsSet.stream()

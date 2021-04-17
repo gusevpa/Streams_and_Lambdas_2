@@ -11,6 +11,10 @@ public class Account {
         this.islocked = islocked;
     }
 
+    public Account(String number) {
+        this.number = number;
+    }
+
     public String getNumber() {
         return number;
     }
@@ -49,11 +53,11 @@ public class Account {
         if (this == o) return true;
         if (!(o instanceof Account)) return false;
         Account account = (Account) o;
-        return islocked() == account.islocked() && getNumber().equals(account.getNumber()) && Objects.equals(getBalance(), account.getBalance());
+        return getNumber().equals(account.getNumber());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getNumber(), getBalance(), islocked());
+        return Objects.hash(getNumber());
     }
 }
